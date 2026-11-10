@@ -11,7 +11,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:wght@400;600;700;800&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
   <!-- Lucide Icons -->
-  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
 
   <script>
     tailwind.config = {
@@ -78,10 +78,11 @@
       transform: translateY(14px) scale(0.99);
       transition: opacity 0.35s cubic-bezier(0.4, 0, 0.2, 1), transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
     }
-    .slide.active {
-      display: block;
-      opacity: 1;
-      transform: translateY(0) scale(1);
+    /* Fallback default to ensure slide 0 is NEVER blank even if JS is delayed */
+    #slide-0.active, .slide.active {
+      display: block !important;
+      opacity: 1 !important;
+      transform: translateY(0) scale(1) !important;
     }
 
     /* Custom Scrollbar for passage text */
@@ -1592,9 +1593,30 @@
 
     // Initializer
     window.addEventListener('DOMContentLoaded', () => {
-      lucide.createIcons();
+      try {
+        if (window.lucide && typeof lucide.createIcons === 'function') {
+          lucide.createIcons();
+        }
+      } catch (e) {
+        console.warn("Lucide icons loading deferred", e);
+      }
+      
+      // Force instant activation of Slide 0
+      currentSlide = 0;
       updateSlideUI();
-      initArcadeGame();
+      try {
+        initArcadeGame();
+      } catch (err) {
+        console.warn("Game init deferred", err);
+      }
+    });
+
+    // Extra safety trigger for window load
+    window.addEventListener('load', () => {
+      updateSlideUI();
+      if (window.lucide && typeof lucide.createIcons === 'function') {
+        lucide.createIcons();
+      }
     });
   </script>
 </body>
