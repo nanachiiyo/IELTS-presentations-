@@ -1,0 +1,1601 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Unit 3: The News & Media - Ready-to-Present Deck</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:wght@400;600;700;800&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            whimsical: {
+              pink: '#FFD6E0',
+              rose: '#FFAAA6',
+              peach: '#FFEAA7',
+              lemon: '#FFF3B0',
+              mint: '#D8F3DC',
+              teal: '#B7E4C7',
+              sky: '#D0F4DE',
+              blue: '#C5E0F6',
+              lilac: '#E8D7F1',
+              lavender: '#D8B4E2',
+              purple: '#A390E4',
+              cloud: '#FAF7F2',
+              text: '#4A4063',
+              dark: '#352D42'
+            }
+          },
+          fontFamily: {
+            title: ['Fredoka', 'cursive'],
+            body: ['Nunito', 'sans-serif'],
+            accent: ['Quicksand', 'sans-serif']
+          },
+          boxShadow: {
+            'pastel': '0 12px 30px -5px rgba(184, 169, 212, 0.35), 0 8px 10px -6px rgba(184, 169, 212, 0.2)',
+            'bubble': '0 8px 0px 0px rgba(163, 144, 228, 0.2)'
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      font-family: 'Nunito', sans-serif;
+      color: #4A4063;
+      background: linear-gradient(135deg, #FFF6F8 0%, #F3F5FF 45%, #FAF2FF 100%);
+      overflow-x: hidden;
+    }
+
+    .bubble {
+      position: absolute;
+      border-radius: 9999px;
+      filter: blur(24px);
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.65;
+      animation: floatSlow 14s ease-in-out infinite alternate;
+    }
+    @keyframes floatSlow {
+      0% { transform: translate(0, 0) scale(1); }
+      50% { transform: translate(30px, -25px) scale(1.08); }
+      100% { transform: translate(-25px, 20px) scale(0.94); }
+    }
+
+    .slide {
+      display: none;
+      opacity: 0;
+      transform: translateY(14px) scale(0.99);
+      transition: opacity 0.35s cubic-bezier(0.4, 0, 0.2, 1), transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .slide.active {
+      display: block;
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+
+    /* Custom Scrollbar for passage text */
+    ::-webkit-scrollbar {
+      width: 7px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #F3E8FF;
+      border-radius: 10px;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #D8B4E2;
+      border-radius: 10px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #B794D0;
+    }
+
+    /* Game animated pulse */
+    .pulse-glow {
+      box-shadow: 0 0 20px rgba(163, 144, 228, 0.45);
+    }
+  </style>
+</head>
+<body class="min-h-screen relative flex flex-col justify-between selection:bg-pink-200">
+
+  <!-- Whimsical Dreamy Bubbles -->
+  <div class="bubble w-96 h-96 bg-pink-200 top-[-60px] left-[-60px]"></div>
+  <div class="bubble w-80 h-80 bg-purple-200 bottom-[8%] right-[-50px]"></div>
+  <div class="bubble w-72 h-72 bg-blue-100 top-[35%] left-[15%]"></div>
+  <div class="bubble w-64 h-64 bg-amber-100 bottom-[-40px] left-[8%]"></div>
+
+  <!-- Top Presenter Header -->
+  <header class="relative z-20 px-6 py-3.5 flex flex-wrap items-center justify-between gap-4 border-b border-purple-100 bg-white/80 backdrop-blur-md shadow-sm">
+    <div class="flex items-center gap-3">
+      <div class="w-10 h-10 rounded-2xl bg-gradient-to-tr from-pink-300 to-purple-300 flex items-center justify-center shadow-pastel text-white">
+        <i data-lucide="sparkles" class="w-5 h-5 animate-pulse"></i>
+      </div>
+      <div>
+        <div class="flex items-center gap-2">
+          <span class="text-[11px] uppercase tracking-wider font-extrabold px-2.5 py-0.5 rounded-full bg-purple-100 text-purple-700 font-accent">Mindset 2 • Unit 3</span>
+          <span class="text-[11px] px-2.5 py-0.5 rounded-full bg-pink-100 text-pink-700 font-bold">Lesson 1: Reading</span>
+          <span class="hidden sm:inline-block text-[11px] px-2 py-0.5 rounded-full bg-teal-100 text-teal-800 font-bold">Ready to Present</span>
+        </div>
+        <h1 class="text-base md:text-lg font-bold font-title text-whimsical-dark tracking-tight">The News & Media: A Smarter Way to Access News</h1>
+      </div>
+    </div>
+
+    <!-- Presentation Tools: Timer, Strategy Badge, Slide Counter & Fullscreen -->
+    <div class="flex items-center gap-2.5">
+      <!-- Universal Quick Timer -->
+      <div class="flex items-center gap-2 bg-purple-50 border border-purple-200 px-3 py-1.5 rounded-2xl shadow-sm">
+        <i data-lucide="timer" class="w-4 h-4 text-purple-600"></i>
+        <span id="timerDisplay" class="font-mono font-bold text-xs text-purple-900">03:00</span>
+        <button id="toggleTimerBtn" onclick="toggleTimer()" class="p-1 rounded-lg hover:bg-purple-200 text-purple-700 transition" title="Start/Pause Timer">
+          <i id="timerIcon" data-lucide="play" class="w-3.5 h-3.5"></i>
+        </button>
+        <button onclick="resetTimer(180)" class="px-1.5 py-0.5 rounded-lg hover:bg-purple-200 text-purple-700 transition text-[11px] font-bold">3m</button>
+        <button onclick="resetTimer(90)" class="px-1.5 py-0.5 rounded-lg hover:bg-purple-200 text-purple-700 transition text-[11px] font-bold">90s</button>
+        <button onclick="resetTimer(30)" class="px-1.5 py-0.5 rounded-lg hover:bg-purple-200 text-purple-700 transition text-[11px] font-bold">30s</button>
+      </div>
+
+      <!-- Strategy Badge -->
+      <div class="hidden lg:flex items-center gap-1.5 bg-pink-50 border border-pink-200 px-3 py-1.5 rounded-2xl text-xs font-semibold text-pink-700">
+        <i data-lucide="compass" class="w-3.5 h-3.5 text-pink-500"></i>
+        <span id="currentStrategyTag">Strategy: Welcome & Orientation</span>
+      </div>
+
+      <!-- Counter -->
+      <div class="bg-white px-3 py-1 rounded-2xl border border-purple-200 text-xs font-bold text-purple-700 shadow-sm">
+        <span id="currentSlideNum">1</span> / <span id="totalSlidesNum">12</span>
+      </div>
+
+      <!-- Fullscreen Toggle -->
+      <button onclick="toggleFullScreen()" class="p-2 rounded-2xl bg-white border border-purple-200 text-purple-700 hover:bg-purple-50 transition shadow-sm" title="Toggle Fullscreen">
+        <i data-lucide="maximize" class="w-4 h-4"></i>
+      </button>
+    </div>
+  </header>
+
+  <!-- Presentation Stage -->
+  <main class="relative z-10 flex-1 max-w-6xl w-full mx-auto px-4 py-5 flex items-center justify-center">
+
+    <!-- SLIDE 1: Cover & Welcome -->
+    <section id="slide-0" class="slide active w-full">
+      <div class="bg-white/85 backdrop-blur-xl rounded-3xl p-8 md:p-12 border border-purple-100 shadow-pastel text-center relative overflow-hidden">
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-pink-100 text-pink-700 font-bold text-xs mb-5 uppercase tracking-widest font-accent">
+          🌸 Cambridge Mindset for IELTS • Level 2 • Unit 3 🌸
+        </div>
+        <h2 class="text-4xl md:text-5xl font-extrabold font-title text-whimsical-dark leading-tight mb-3">
+          The News & Media
+        </h2>
+        <p class="text-base md:text-lg text-purple-900/80 font-medium max-w-2xl mx-auto mb-8 font-accent">
+          Lesson 1: Reading — "A Smarter Way to Access the News?"<br>
+          <span class="text-xs text-purple-700">Matching Information • Skimming for Purpose • Paraphrase Hunt • The Passive Voice</span>
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-3xl mx-auto text-left mb-8">
+          <div class="bg-gradient-to-br from-pink-50 to-pink-100/60 p-4 rounded-2xl border border-pink-200/70">
+            <div class="w-7 h-7 rounded-xl bg-pink-300 text-white flex items-center justify-center mb-2 font-bold text-xs">🎯</div>
+            <h4 class="font-bold text-xs text-pink-900 mb-1">Target Skill</h4>
+            <p class="text-[11px] text-pink-800 leading-relaxed">Matching statements in questions with specific text paragraphs (pp. 48–50).</p>
+          </div>
+          <div class="bg-gradient-to-br from-purple-50 to-purple-100/60 p-4 rounded-2xl border border-purple-200/70">
+            <div class="w-7 h-7 rounded-xl bg-purple-300 text-white flex items-center justify-center mb-2 font-bold text-xs">🧠</div>
+            <h4 class="font-bold text-xs text-purple-900 mb-1">Cognitive Strategy</h4>
+            <p class="text-[11px] text-purple-800 leading-relaxed">Fast skimming to categorize paragraph functions (Fact, Opinion, Reaction, Cause & Effect).</p>
+          </div>
+          <div class="bg-gradient-to-br from-teal-50 to-teal-100/60 p-4 rounded-2xl border border-teal-200/70">
+            <div class="w-7 h-7 rounded-xl bg-teal-300 text-white flex items-center justify-center mb-2 font-bold text-xs">✨</div>
+            <h4 class="font-bold text-xs text-teal-900 mb-1">Grammar & Game</h4>
+            <p class="text-[11px] text-teal-800 leading-relaxed">Passive voice transformation + Newsroom Rush Distractor Dodge Arcade.</p>
+          </div>
+        </div>
+
+        <div class="flex flex-wrap justify-center items-center gap-3">
+          <button onclick="goToSlide(1)" class="px-7 py-3 rounded-2xl bg-gradient-to-r from-purple-400 to-pink-400 hover:from-purple-500 hover:to-pink-500 text-white font-bold text-sm shadow-md transition transform hover:-translate-y-0.5 flex items-center gap-2">
+            <span>Start Lesson Presentation</span>
+            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+          </button>
+          <button onclick="playWhimsicalChime()" class="px-4 py-3 rounded-2xl bg-white border border-purple-200 text-purple-700 font-bold hover:bg-purple-50 transition text-xs flex items-center gap-1.5 shadow-sm">
+            <i data-lucide="bell" class="w-3.5 h-3.5 text-purple-500"></i>
+            <span>Classroom Chime</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 2: Objectives & Pedagogical Strategies -->
+    <section id="slide-1" class="slide w-full">
+      <div class="bg-white/85 backdrop-blur-xl rounded-3xl p-7 md:p-9 border border-purple-100 shadow-pastel">
+        <div class="flex items-center gap-3 mb-5">
+          <div class="p-2.5 rounded-2xl bg-purple-100 text-purple-600">
+            <i data-lucide="target" class="w-5 h-5"></i>
+          </div>
+          <div>
+            <h3 class="text-xl md:text-2xl font-bold font-title text-whimsical-dark">Lesson Objectives & Pedagogical Framework</h3>
+            <p class="text-xs text-purple-600 font-accent font-semibold">Grounded in Mindset for IELTS Level 2 • Unit 3 (pp. 48–52)</p>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-5 mb-5">
+          <div class="bg-pink-50/70 border border-pink-200/80 rounded-2xl p-5">
+            <h4 class="font-bold text-pink-900 text-sm mb-3 flex items-center gap-2">
+              <i data-lucide="check-circle-2" class="w-4 h-4 text-pink-500"></i>
+              What Learners Will Master (Student Objectives)
+            </h4>
+            <ul class="space-y-2.5 text-xs text-pink-950">
+              <li class="flex items-start gap-2">
+                <span class="w-4 h-4 rounded-full bg-pink-200 text-pink-800 flex items-center justify-center font-bold text-[10px] mt-0.5">1</span>
+                <span><strong>Match Information</strong> accurately with passage paragraphs, knowing questions do NOT follow text order (pp. 48–50).</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="w-4 h-4 rounded-full bg-pink-200 text-pink-800 flex items-center justify-center font-bold text-[10px] mt-0.5">2</span>
+                <span><strong>Profile Paragraphs:</strong> Label functional types (Fact, Reason, Summary, Opinion, Cause & Effect) to locate answers rapidly (pp. 50–51).</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="w-4 h-4 rounded-full bg-pink-200 text-pink-800 flex items-center justify-center font-bold text-[10px] mt-0.5">3</span>
+                <span><strong>Recognize Exam Synonyms</strong> (e.g. <em>25% → a quarter of; several methods → combination of 2 or 3</em>) (p. 50).</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="w-4 h-4 rounded-full bg-pink-200 text-pink-800 flex items-center justify-center font-bold text-[10px] mt-0.5">4</span>
+                <span><strong>Master the Passive Voice</strong> across multiple tenses in formal news writing (pp. 51–52).</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="bg-purple-50/70 border border-purple-200/80 rounded-2xl p-5">
+            <h4 class="font-bold text-purple-900 text-sm mb-3 flex items-center gap-2">
+              <i data-lucide="lightbulb" class="w-4 h-4 text-purple-500"></i>
+              Active Classroom Teaching Strategies
+            </h4>
+            <div class="space-y-2 text-xs text-purple-950">
+              <div class="p-2.5 bg-white/80 rounded-xl border border-purple-100">
+                <strong class="text-purple-700">1. Think-Pair-Share:</strong> Compare news consumption habits in pairs before opening the book.
+              </div>
+              <div class="p-2.5 bg-white/80 rounded-xl border border-purple-100">
+                <strong class="text-purple-700">2. Scaffolded Profiling:</strong> Tagging paragraph functions before reading questions prevents cognitive overload.
+              </div>
+              <div class="p-2.5 bg-white/80 rounded-xl border border-purple-100">
+                <strong class="text-purple-700">3. Arcade Gamification:</strong> Reinforce distractor detection under timed, low-stakes classroom competition.
+              </div>
+              <div class="p-2.5 bg-white/80 rounded-xl border border-purple-100">
+                <strong class="text-purple-700">4. Formative Exit Ticket:</strong> Rapid individual review check to verify daily learning outcomes.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-amber-50 border border-amber-200 rounded-2xl p-3.5 flex items-center justify-between gap-4">
+          <div class="flex items-center gap-2 text-xs text-amber-900">
+            <i data-lucide="zap" class="w-4 h-4 text-amber-600 flex-shrink-0"></i>
+            <span><strong>Teacher Tip:</strong> Encourage students to notice that matching questions always use synonyms rather than direct words from the text.</span>
+          </div>
+          <button onclick="goToSlide(2)" class="px-4 py-1.5 bg-purple-600 hover:bg-purple-700 text-white rounded-xl text-xs font-bold transition flex-shrink-0">
+            Proceed to Warm-Up →
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 3: Warm-Up & Lead-In (Page 48, Ex 01-03) -->
+    <section id="slide-2" class="slide w-full">
+      <div class="bg-white/85 backdrop-blur-xl rounded-3xl p-7 md:p-9 border border-purple-100 shadow-pastel">
+        <div class="flex flex-wrap items-center justify-between gap-3 mb-5">
+          <div class="flex items-center gap-3">
+            <div class="p-2 rounded-2xl bg-pink-100 text-pink-600">
+              <i data-lucide="coffee" class="w-5 h-5"></i>
+            </div>
+            <div>
+              <span class="text-xs font-bold text-pink-600 uppercase font-accent">Lead-In (Book Page 48 • Ex 01 & 02)</span>
+              <h3 class="text-xl md:text-2xl font-bold font-title text-whimsical-dark">Warm-Up: How Is News Consumed Today?</h3>
+            </div>
+          </div>
+          <button onclick="resetTimer(120); startTimer();" class="px-3 py-1.5 bg-pink-100 hover:bg-pink-200 text-pink-700 text-xs font-bold rounded-xl transition flex items-center gap-1.5">
+            <i data-lucide="hourglass" class="w-3.5 h-3.5"></i>
+            <span>2-Min Pair Discussion</span>
+          </button>
+        </div>
+
+        <p class="text-xs text-gray-700 mb-4">
+          Read what 4 people say about how they access news. Click each pastel card to reveal its official IELTS question match!
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-3.5 mb-5">
+          <!-- Quote A -->
+          <div onclick="revealQuoteMatch('A')" class="cursor-pointer p-3.5 rounded-2xl bg-gradient-to-br from-pink-50 to-white border border-pink-200 hover:border-pink-400 transition shadow-sm">
+            <div class="flex justify-between items-center mb-1.5">
+              <span class="font-bold text-xs text-pink-800 font-title">Quote A: Sarah (35)</span>
+              <span class="text-[10px] bg-pink-200/60 text-pink-800 px-2 py-0.5 rounded-full font-bold">Click to Match</span>
+            </div>
+            <p class="text-xs text-gray-700 italic">"Since the birth of the internet, access to news has become 24/7. This is having a negative impact on society, and we've all become news addicts!"</p>
+            <div id="match-result-A" class="mt-2 pt-1.5 border-t border-pink-100 text-xs font-bold text-pink-600 hidden">
+              ✓ Matches Statement 1: "Continual exposure to the news is bad for us."
+            </div>
+          </div>
+
+          <!-- Quote B -->
+          <div onclick="revealQuoteMatch('B')" class="cursor-pointer p-3.5 rounded-2xl bg-gradient-to-br from-purple-50 to-white border border-purple-200 hover:border-purple-400 transition shadow-sm">
+            <div class="flex justify-between items-center mb-1.5">
+              <span class="font-bold text-xs text-purple-800 font-title">Quote B: Charles (65)</span>
+              <span class="text-[10px] bg-purple-200/60 text-purple-800 px-2 py-0.5 rounded-full font-bold">Click to Match</span>
+            </div>
+            <p class="text-xs text-gray-700 italic">"Adults aged 60+ buy a daily newspaper as a matter of habit. Generally, they don't know how to access news online."</p>
+            <div id="match-result-B" class="mt-2 pt-1.5 border-t border-purple-100 text-xs font-bold text-purple-600 hidden">
+              ✓ Matches Statement 4: "The older generation don't know how to read the news using the internet."
+            </div>
+          </div>
+
+          <!-- Quote C -->
+          <div onclick="revealQuoteMatch('C')" class="cursor-pointer p-3.5 rounded-2xl bg-gradient-to-br from-blue-50 to-white border border-blue-200 hover:border-blue-400 transition shadow-sm">
+            <div class="flex justify-between items-center mb-1.5">
+              <span class="font-bold text-xs text-blue-800 font-title">Quote C: Matt (18)</span>
+              <span class="text-[10px] bg-blue-200/60 text-blue-800 px-2 py-0.5 rounded-full font-bold">Click to Match</span>
+            </div>
+            <p class="text-xs text-gray-700 italic">"Youngsters these days aren't interested in news and spend time on social media. They don't buy newspapers or watch TV bulletins—only entertainment."</p>
+            <div id="match-result-C" class="mt-2 pt-1.5 border-t border-blue-100 text-xs font-bold text-blue-600 hidden">
+              ✓ Matches Statement 3: "Teenagers are only interested in news about actors and pop stars."
+            </div>
+          </div>
+
+          <!-- Quote D -->
+          <div onclick="revealQuoteMatch('D')" class="cursor-pointer p-3.5 rounded-2xl bg-gradient-to-br from-teal-50 to-white border border-teal-200 hover:border-teal-400 transition shadow-sm">
+            <div class="flex justify-between items-center mb-1.5">
+              <span class="font-bold text-xs text-teal-800 font-title">Quote D: Mary (25)</span>
+              <span class="text-[10px] bg-teal-200/60 text-teal-800 px-2 py-0.5 rounded-full font-bold">Click to Match</span>
+            </div>
+            <p class="text-xs text-gray-700 italic">"I would only use social media for entertainment news. I wouldn't trust it for serious news, like crime or politics. For those, I'd rely on TV bulletins."</p>
+            <div id="match-result-D" class="mt-2 pt-1.5 border-t border-teal-100 text-xs font-bold text-teal-600 hidden">
+              ✓ Matches Statement 2: "As a news source, there is more confidence in television than in the internet."
+            </div>
+          </div>
+        </div>
+
+        <!-- Live Classroom Opinion Poll -->
+        <div class="bg-purple-100/60 rounded-2xl p-3.5 border border-purple-200">
+          <div class="flex items-center justify-between mb-2">
+            <span class="text-xs font-bold text-purple-900">🗳️ Live Class Poll: Which speaker's point matches your own daily habits?</span>
+            <span id="totalVotes" class="text-xs font-semibold text-purple-700">Total votes: 0</span>
+          </div>
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-2">
+            <button onclick="voteQuote('Sarah')" class="p-2 rounded-xl bg-white border border-purple-200 text-xs font-bold hover:bg-pink-50 text-gray-700 transition">
+              Sarah (24/7 Addicts) <span id="voteSarah" class="text-purple-600">(0)</span>
+            </button>
+            <button onclick="voteQuote('Charles')" class="p-2 rounded-xl bg-white border border-purple-200 text-xs font-bold hover:bg-purple-50 text-gray-700 transition">
+              Charles (Paper Habit) <span id="voteCharles" class="text-purple-600">(0)</span>
+            </button>
+            <button onclick="voteQuote('Matt')" class="p-2 rounded-xl bg-white border border-purple-200 text-xs font-bold hover:bg-blue-50 text-gray-700 transition">
+              Matt (Entertainment) <span id="voteMatt" class="text-purple-600">(0)</span>
+            </button>
+            <button onclick="voteQuote('Mary')" class="p-2 rounded-xl bg-white border border-purple-200 text-xs font-bold hover:bg-teal-50 text-gray-700 transition">
+              Mary (Trust TV More) <span id="voteMary" class="text-purple-600">(0)</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 4: Core Reading Passage & Speed Skim (Page 49, Ex 04) -->
+    <section id="slide-3" class="slide w-full">
+      <div class="bg-white/85 backdrop-blur-xl rounded-3xl p-6 md:p-8 border border-purple-100 shadow-pastel">
+        <div class="flex flex-wrap items-center justify-between gap-3 mb-4">
+          <div class="flex items-center gap-3">
+            <div class="p-2 rounded-2xl bg-blue-100 text-blue-600">
+              <i data-lucide="book-open" class="w-5 h-5"></i>
+            </div>
+            <div>
+              <span class="text-xs font-bold text-blue-600 uppercase font-accent">Core Text Passage (Book Page 49 • Ex 04)</span>
+              <h3 class="text-xl md:text-2xl font-bold font-title text-whimsical-dark">A Smarter Way to Access the News?</h3>
+            </div>
+          </div>
+          <div class="flex items-center gap-2">
+            <button onclick="highlightStrategy('skim')" class="px-3 py-1 bg-blue-50 hover:bg-blue-100 text-blue-700 text-xs font-bold rounded-lg border border-blue-200 transition">
+              Highlight Key Terms
+            </button>
+            <button onclick="resetTimer(90); startTimer();" class="px-3 py-1 bg-purple-100 text-purple-700 text-xs font-bold rounded-lg border border-purple-200 transition">
+              ⏱️ 90s Speed Skim
+            </button>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-3.5 max-h-[420px] overflow-y-auto p-2 border border-purple-100 rounded-2xl bg-purple-50/20">
+          <!-- Para A -->
+          <div class="bg-white p-3.5 rounded-2xl border border-pink-100 shadow-sm">
+            <div class="flex items-center justify-between mb-1.5">
+              <span class="w-6 h-6 rounded-full bg-pink-200 text-pink-700 flex items-center justify-center font-bold text-xs font-title">A</span>
+              <span class="text-[11px] font-bold text-pink-500 uppercase tracking-wide">Smartphone Surge</span>
+            </div>
+            <p class="text-xs leading-relaxed text-gray-700">
+              A recent report, issued by the international news agency <span class="bg-pink-100 px-1 rounded font-semibold text-pink-900">Reuters</span>, reveals that smartphones are quickly becoming the most popular way to access the news. Over the last year, this increase has been particularly noted in countries such as the UK, the USA and Japan. In fact, for all countries involved in the survey, usage has increased from 37% to 46%. Furthermore, 66% of smartphone users are now using the device for news on a <span class="bg-purple-100 px-1 rounded font-semibold text-purple-900">weekly basis</span>.
+            </p>
+          </div>
+
+          <!-- Para B -->
+          <div class="bg-white p-3.5 rounded-2xl border border-purple-100 shadow-sm">
+            <div class="flex items-center justify-between mb-1.5">
+              <span class="w-6 h-6 rounded-full bg-purple-200 text-purple-700 flex items-center justify-center font-bold text-xs font-title">B</span>
+              <span class="text-[11px] font-bold text-purple-500 uppercase tracking-wide">Tablets & Desktops</span>
+            </div>
+            <p class="text-xs leading-relaxed text-gray-700">
+              By comparison, the number of people using tablets to access the news is decreasing in most countries. More sophisticated smartphones are reducing the need for other portable devices. The need for accessing the news on <span class="bg-purple-100 px-1 rounded font-semibold text-purple-900">laptops and desktops</span> has also changed. Over half (57%) still consider these devices the most important ways to access the news, but this is a decrease of 8% from last year.
+            </p>
+          </div>
+
+          <!-- Para C -->
+          <div class="bg-white p-3.5 rounded-2xl border border-blue-100 shadow-sm">
+            <div class="flex items-center justify-between mb-1.5">
+              <span class="w-6 h-6 rounded-full bg-blue-200 text-blue-700 flex items-center justify-center font-bold text-xs font-title">C</span>
+              <span class="text-[11px] font-bold text-blue-500 uppercase tracking-wide">Trusted Sources</span>
+            </div>
+            <p class="text-xs leading-relaxed text-gray-700">
+              The report also revealed, however, that on average people only use a small number of <span class="bg-blue-100 px-1 rounded font-semibold text-blue-900">trusted news sources</span> on their phones, the average across all countries being 1.52 per person. In the UK, for example, over half of smartphone users (<span class="bg-pink-100 px-1 rounded font-semibold text-pink-900">51%</span>) regularly use the BBC app.
+            </p>
+          </div>
+
+          <!-- Para D -->
+          <div class="bg-white p-3.5 rounded-2xl border border-teal-100 shadow-sm">
+            <div class="flex items-center justify-between mb-1.5">
+              <span class="w-6 h-6 rounded-full bg-teal-200 text-teal-800 flex items-center justify-center font-bold text-xs font-title">D</span>
+              <span class="text-[11px] font-bold text-teal-600 uppercase tracking-wide">Multi-Device Trend</span>
+            </div>
+            <p class="text-xs leading-relaxed text-gray-700">
+              Across all countries included in the survey, 25% stated that their smartphone was the main device used for accessing digital news, an increase of 20% since last year. This is particularly true of those <span class="bg-teal-100 px-1 rounded font-semibold text-teal-900">aged under 35</span>, with the figure rising to 41%. The overall trend, however, is not to use just one digital device to access the news, but rather a <span class="bg-purple-100 px-1 rounded font-semibold text-purple-900">combination of two or three</span>.
+            </p>
+          </div>
+        </div>
+
+        <div class="mt-4 flex items-center justify-between">
+          <span class="text-xs text-purple-700 italic">💡 IELTS Tip: Don't get stuck on unknown words; skim for the main idea of each paragraph first!</span>
+          <button onclick="goToSlide(4)" class="px-5 py-2.5 bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded-xl text-xs font-bold shadow-md hover:opacity-95 transition">
+            Proceed to Exercise 5 Practice →
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 5: Matching Information (Book Page 49-50, Ex 05 & 06) -->
+    <section id="slide-4" class="slide w-full">
+      <div class="bg-white/85 backdrop-blur-xl rounded-3xl p-6 md:p-8 border border-purple-100 shadow-pastel">
+        <div class="flex items-center justify-between mb-4">
+          <div class="flex items-center gap-3">
+            <div class="p-2 rounded-2xl bg-purple-100 text-purple-600">
+              <i data-lucide="help-circle" class="w-5 h-5"></i>
+            </div>
+            <div>
+              <span class="text-xs font-bold text-purple-600 uppercase font-accent">IELTS Task Practice (Book Page 49 • Ex 05)</span>
+              <h3 class="text-xl md:text-2xl font-bold font-title text-whimsical-dark">Matching Information to Paragraphs (A–D)</h3>
+            </div>
+          </div>
+          <span class="text-xs bg-purple-100 text-purple-800 font-bold px-3 py-1 rounded-full">Letters may be used more than once</span>
+        </div>
+
+        <div class="space-y-3 mb-5">
+          <!-- Q1 -->
+          <div class="p-3 bg-white rounded-2xl border border-purple-100 flex flex-wrap items-center justify-between gap-3 shadow-sm hover:border-purple-300 transition">
+            <div class="text-xs md:text-sm font-semibold text-gray-800 flex-1">
+              <span class="inline-block w-6 h-6 rounded-full bg-pink-100 text-pink-700 text-center font-bold text-xs leading-6 mr-2">1</span>
+              other ways news is accessed online
+            </div>
+            <div class="flex items-center gap-2">
+              <button onclick="checkMatchQ(1, 'A', this)" class="q1-btn px-3 py-1 rounded-xl bg-purple-50 hover:bg-purple-200 text-xs font-bold text-purple-800 transition">A</button>
+              <button onclick="checkMatchQ(1, 'B', this)" class="q1-btn px-3 py-1 rounded-xl bg-purple-50 hover:bg-purple-200 text-xs font-bold text-purple-800 transition">B</button>
+              <button onclick="checkMatchQ(1, 'C', this)" class="q1-btn px-3 py-1 rounded-xl bg-purple-50 hover:bg-purple-200 text-xs font-bold text-purple-800 transition">C</button>
+              <button onclick="checkMatchQ(1, 'D', this)" class="q1-btn px-3 py-1 rounded-xl bg-purple-50 hover:bg-purple-200 text-xs font-bold text-purple-800 transition">D</button>
+              <span id="q1-feedback" class="text-xs font-bold ml-2"></span>
+            </div>
+          </div>
+
+          <!-- Q2 -->
+          <div class="p-3 bg-white rounded-2xl border border-purple-100 flex flex-wrap items-center justify-between gap-3 shadow-sm hover:border-purple-300 transition">
+            <div class="text-xs md:text-sm font-semibold text-gray-800 flex-1">
+              <span class="inline-block w-6 h-6 rounded-full bg-pink-100 text-pink-700 text-center font-bold text-xs leading-6 mr-2">2</span>
+              over half of smartphone users access news via their phones
+            </div>
+            <div class="flex items-center gap-2">
+              <button onclick="checkMatchQ(2, 'A', this)" class="q2-btn px-3 py-1 rounded-xl bg-purple-50 hover:bg-purple-200 text-xs font-bold text-purple-800 transition">A</button>
+              <button onclick="checkMatchQ(2, 'B', this)" class="q2-btn px-3 py-1 rounded-xl bg-purple-50 hover:bg-purple-200 text-xs font-bold text-purple-800 transition">B</button>
+              <button onclick="checkMatchQ(2, 'C', this)" class="q2-btn px-3 py-1 rounded-xl bg-purple-50 hover:bg-purple-200 text-xs font-bold text-purple-800 transition">C</button>
+              <button onclick="checkMatchQ(2, 'D', this)" class="q2-btn px-3 py-1 rounded-xl bg-purple-50 hover:bg-purple-200 text-xs font-bold text-purple-800 transition">D</button>
+              <span id="q2-feedback" class="text-xs font-bold ml-2"></span>
+            </div>
+          </div>
+
+          <!-- Q3 -->
+          <div class="p-3 bg-white rounded-2xl border border-purple-100 flex flex-wrap items-center justify-between gap-3 shadow-sm hover:border-purple-300 transition">
+            <div class="text-xs md:text-sm font-semibold text-gray-800 flex-1">
+              <span class="inline-block w-6 h-6 rounded-full bg-pink-100 text-pink-700 text-center font-bold text-xs leading-6 mr-2">3</span>
+              the most popular way to access the news digitally is by using several methods
+            </div>
+            <div class="flex items-center gap-2">
+              <button onclick="checkMatchQ(3, 'A', this)" class="q3-btn px-3 py-1 rounded-xl bg-purple-50 hover:bg-purple-200 text-xs font-bold text-purple-800 transition">A</button>
+              <button onclick="checkMatchQ(3, 'B', this)" class="q3-btn px-3 py-1 rounded-xl bg-purple-50 hover:bg-purple-200 text-xs font-bold text-purple-800 transition">B</button>
+              <button onclick="checkMatchQ(3, 'C', this)" class="q3-btn px-3 py-1 rounded-xl bg-purple-50 hover:bg-purple-200 text-xs font-bold text-purple-800 transition">C</button>
+              <button onclick="checkMatchQ(3, 'D', this)" class="q3-btn px-3 py-1 rounded-xl bg-purple-50 hover:bg-purple-200 text-xs font-bold text-purple-800 transition">D</button>
+              <span id="q3-feedback" class="text-xs font-bold ml-2"></span>
+            </div>
+          </div>
+
+          <!-- Q4 -->
+          <div class="p-3 bg-white rounded-2xl border border-purple-100 flex flex-wrap items-center justify-between gap-3 shadow-sm hover:border-purple-300 transition">
+            <div class="text-xs md:text-sm font-semibold text-gray-800 flex-1">
+              <span class="inline-block w-6 h-6 rounded-full bg-pink-100 text-pink-700 text-center font-bold text-xs leading-6 mr-2">4</span>
+              the younger generation are more likely to use their smartphone to access the news
+            </div>
+            <div class="flex items-center gap-2">
+              <button onclick="checkMatchQ(4, 'A', this)" class="q4-btn px-3 py-1 rounded-xl bg-purple-50 hover:bg-purple-200 text-xs font-bold text-purple-800 transition">A</button>
+              <button onclick="checkMatchQ(4, 'B', this)" class="q4-btn px-3 py-1 rounded-xl bg-purple-50 hover:bg-purple-200 text-xs font-bold text-purple-800 transition">B</button>
+              <button onclick="checkMatchQ(4, 'C', this)" class="q4-btn px-3 py-1 rounded-xl bg-purple-50 hover:bg-purple-200 text-xs font-bold text-purple-800 transition">C</button>
+              <button onclick="checkMatchQ(4, 'D', this)" class="q4-btn px-3 py-1 rounded-xl bg-purple-50 hover:bg-purple-200 text-xs font-bold text-purple-800 transition">D</button>
+              <span id="q4-feedback" class="text-xs font-bold ml-2"></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-gradient-to-r from-pink-50 to-purple-50 rounded-2xl p-3.5 border border-purple-200 flex flex-col sm:flex-row items-center justify-between gap-3">
+          <div class="text-xs text-purple-900">
+            <strong>Key IELTS Rules (Ex 6):</strong> Answers do NOT follow passage order. Always search for synonyms!
+          </div>
+          <button onclick="revealAllEx5()" class="px-3.5 py-1.5 bg-white border border-purple-300 text-purple-700 rounded-xl text-xs font-bold hover:bg-purple-100 transition whitespace-nowrap">
+            Reveal Official Answers
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 6: Synonym Lab (Page 50, Ex 07) -->
+    <section id="slide-5" class="slide w-full">
+      <div class="bg-white/85 backdrop-blur-xl rounded-3xl p-7 md:p-9 border border-purple-100 shadow-pastel">
+        <div class="flex items-center justify-between mb-5">
+          <div class="flex items-center gap-3">
+            <div class="p-2 rounded-2xl bg-teal-100 text-teal-700">
+              <i data-lucide="key-round" class="w-5 h-5"></i>
+            </div>
+            <div>
+              <span class="text-xs font-bold text-teal-700 uppercase font-accent">Teaching Strategy • Lexical Paraphrasing (Book Page 50 • Ex 07)</span>
+              <h3 class="text-xl md:text-2xl font-bold font-title text-whimsical-dark">Synonym Match Hunt: Spotting the Disguise!</h3>
+            </div>
+          </div>
+          <button onclick="resetTimer(90); startTimer();" class="px-3 py-1.5 bg-teal-100 hover:bg-teal-200 text-teal-800 text-xs font-bold rounded-xl transition flex items-center gap-1.5">
+            <i data-lucide="play" class="w-3.5 h-3.5"></i> 90s Partner Race
+          </button>
+        </div>
+
+        <p class="text-xs text-gray-700 mb-5">
+          IELTS questions test your vocabulary by rephrasing ideas. Click the pastel synonym tiles on the right to place them into the correct slots!
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-5 mb-5">
+          <div class="space-y-2.5">
+            <h4 class="text-xs font-bold uppercase tracking-wider text-purple-800">Words in Reading Text</h4>
+            
+            <div class="p-2.5 bg-purple-50 rounded-xl border border-purple-200 flex justify-between items-center text-xs font-semibold">
+              <span>1. "The overall trend"</span>
+              <span id="syn-slot-1" class="px-2.5 py-1 bg-white rounded-lg border border-dashed border-purple-300 text-purple-600 font-bold text-[11px]">[Click Answer Below]</span>
+            </div>
+            <div class="p-2.5 bg-purple-50 rounded-xl border border-purple-200 flex justify-between items-center text-xs font-semibold">
+              <span>2. "66%" / "Over half"</span>
+              <span id="syn-slot-2" class="px-2.5 py-1 bg-white rounded-lg border border-dashed border-purple-300 text-purple-600 font-bold text-[11px]">[Click Answer Below]</span>
+            </div>
+            <div class="p-2.5 bg-purple-50 rounded-xl border border-purple-200 flex justify-between items-center text-xs font-semibold">
+              <span>3. "A combination of 2 or 3"</span>
+              <span id="syn-slot-3" class="px-2.5 py-1 bg-white rounded-lg border border-dashed border-purple-300 text-purple-600 font-bold text-[11px]">[Click Answer Below]</span>
+            </div>
+            <div class="p-2.5 bg-purple-50 rounded-xl border border-purple-200 flex justify-between items-center text-xs font-semibold">
+              <span>4. "25%"</span>
+              <span id="syn-slot-4" class="px-2.5 py-1 bg-white rounded-lg border border-dashed border-purple-300 text-purple-600 font-bold text-[11px]">[Click Answer Below]</span>
+            </div>
+            <div class="p-2.5 bg-purple-50 rounded-xl border border-purple-200 flex justify-between items-center text-xs font-semibold">
+              <span>5. "On a weekly basis"</span>
+              <span id="syn-slot-5" class="px-2.5 py-1 bg-white rounded-lg border border-dashed border-purple-300 text-purple-600 font-bold text-[11px]">[Click Answer Below]</span>
+            </div>
+          </div>
+
+          <div>
+            <h4 class="text-xs font-bold uppercase tracking-wider text-teal-800 mb-2.5">Matching IELTS Synonyms</h4>
+            <div class="flex flex-wrap gap-2">
+              <button onclick="placeSynonym(1, 'the most popular way')" class="px-3 py-2 rounded-xl bg-teal-50 border border-teal-300 text-teal-800 text-xs font-bold hover:bg-teal-200 transition shadow-sm">
+                "the most popular way"
+              </button>
+              <button onclick="placeSynonym(4, 'a quarter of')" class="px-3 py-2 rounded-xl bg-pink-50 border border-pink-300 text-pink-800 text-xs font-bold hover:bg-pink-200 transition shadow-sm">
+                "a quarter of"
+              </button>
+              <button onclick="placeSynonym(3, 'several methods')" class="px-3 py-2 rounded-xl bg-amber-50 border border-amber-300 text-amber-800 text-xs font-bold hover:bg-amber-200 transition shadow-sm">
+                "several methods"
+              </button>
+              <button onclick="placeSynonym(2, 'majority / over half')" class="px-3 py-2 rounded-xl bg-purple-50 border border-purple-300 text-purple-800 text-xs font-bold hover:bg-purple-200 transition shadow-sm">
+                "majority / over half"
+              </button>
+              <button onclick="placeSynonym(5, 'regularly / often')" class="px-3 py-2 rounded-xl bg-blue-50 border border-blue-300 text-blue-800 text-xs font-bold hover:bg-blue-200 transition shadow-sm">
+                "regularly / often"
+              </button>
+            </div>
+
+            <div class="mt-4 p-3.5 rounded-2xl bg-teal-50/80 border border-teal-200 text-xs text-teal-900 leading-relaxed">
+              <strong class="text-teal-800">Senior IELTS Examiner Tip:</strong> Always look for mathematical fraction paraphrases: <em>25% → a quarter</em>, <em>51% → over half</em>, and <em>on a weekly basis → regularly</em>.
+            </div>
+          </div>
+        </div>
+
+        <div class="flex justify-end gap-2.5">
+          <button onclick="resetSynonyms()" class="px-3.5 py-1.5 text-xs font-bold text-gray-600 bg-gray-100 hover:bg-gray-200 rounded-xl transition">Reset</button>
+          <button onclick="goToSlide(5)" class="px-5 py-2 bg-teal-600 hover:bg-teal-700 text-white rounded-xl text-xs font-bold shadow-md transition">Next: Paragraph Profiling →</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 7: Paragraph Profiling & Purpose (Page 50-51, Ex 08-09) -->
+    <section id="slide-6" class="slide w-full">
+      <div class="bg-white/85 backdrop-blur-xl rounded-3xl p-6 md:p-8 border border-purple-100 shadow-pastel">
+        <div class="flex items-center justify-between mb-4">
+          <div class="flex items-center gap-3">
+            <div class="p-2 rounded-2xl bg-amber-100 text-amber-600">
+              <i data-lucide="layers" class="w-5 h-5"></i>
+            </div>
+            <div>
+              <span class="text-xs font-bold text-amber-600 uppercase font-accent">Cognitive Strategy • Paragraph Profiling (Book Page 50 • Ex 08)</span>
+              <h3 class="text-xl md:text-2xl font-bold font-title text-whimsical-dark">Identifying Types of Information</h3>
+            </div>
+          </div>
+          <span class="text-xs bg-amber-100 text-amber-800 font-bold px-3 py-1 rounded-full">Tag the Purpose</span>
+        </div>
+
+        <p class="text-xs text-gray-700 mb-3.5">
+          Categorizing the purpose of each paragraph saves critical exam time. Identify the communicative purpose of these 4 news excerpts:
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-3.5 mb-4">
+          <!-- Snippet 1 -->
+          <div class="p-3.5 bg-white rounded-2xl border border-amber-200 shadow-sm">
+            <span class="text-[10px] font-bold text-amber-700 bg-amber-100 px-2 py-0.5 rounded-full">Snippet 1</span>
+            <p class="text-xs text-gray-700 mt-1.5 mb-2.5 italic">
+              "Tennis fans were left shocked today, when the favourite to win the championship was defeated in the third round by an unknown player."
+            </p>
+            <div class="flex gap-2">
+              <button onclick="selectSnippetType(1, 'reaction', this)" class="snip1 px-2.5 py-1 rounded-lg bg-gray-100 text-xs font-semibold hover:bg-amber-100 transition">Reaction</button>
+              <button onclick="selectSnippetType(1, 'summary', this)" class="snip1 px-2.5 py-1 rounded-lg bg-gray-100 text-xs font-semibold hover:bg-amber-100 transition">Summary</button>
+              <button onclick="selectSnippetType(1, 'cause', this)" class="snip1 px-2.5 py-1 rounded-lg bg-gray-100 text-xs font-semibold hover:bg-amber-100 transition">Cause & Effect</button>
+            </div>
+            <p id="snip1-ans" class="text-xs font-bold mt-1.5 text-emerald-600 hidden">✓ Correct: Fans' emotional response = Reaction!</p>
+          </div>
+
+          <!-- Snippet 2 -->
+          <div class="p-3.5 bg-white rounded-2xl border border-amber-200 shadow-sm">
+            <span class="text-[10px] font-bold text-amber-700 bg-amber-100 px-2 py-0.5 rounded-full">Snippet 2</span>
+            <p class="text-xs text-gray-700 mt-1.5 mb-2.5 italic">
+              "According to recent reports, the government feels school meals are unnecessary. Headteachers feel this would be a disaster, however."
+            </p>
+            <div class="flex gap-2">
+              <button onclick="selectSnippetType(2, 'opinion', this)" class="snip2 px-2.5 py-1 rounded-lg bg-gray-100 text-xs font-semibold hover:bg-amber-100 transition">Opinion</button>
+              <button onclick="selectSnippetType(2, 'account', this)" class="snip2 px-2.5 py-1 rounded-lg bg-gray-100 text-xs font-semibold hover:bg-amber-100 transition">Account</button>
+              <button onclick="selectSnippetType(2, 'description', this)" class="snip2 px-2.5 py-1 rounded-lg bg-gray-100 text-xs font-semibold hover:bg-amber-100 transition">Description</button>
+            </div>
+            <p id="snip2-ans" class="text-xs font-bold mt-1.5 text-emerald-600 hidden">✓ Correct: Professional viewpoint = Opinion!</p>
+          </div>
+
+          <!-- Snippet 3 -->
+          <div class="p-3.5 bg-white rounded-2xl border border-amber-200 shadow-sm">
+            <span class="text-[10px] font-bold text-amber-700 bg-amber-100 px-2 py-0.5 rounded-full">Snippet 3</span>
+            <p class="text-xs text-gray-700 mt-1.5 mb-2.5 italic">
+              "People must be responsible for their own health, otherwise the National Health Service will no longer be able to cope."
+            </p>
+            <div class="flex gap-2">
+              <button onclick="selectSnippetType(3, 'cause', this)" class="snip3 px-2.5 py-1 rounded-lg bg-gray-100 text-xs font-semibold hover:bg-amber-100 transition">Cause & Effect</button>
+              <button onclick="selectSnippetType(3, 'reaction', this)" class="snip3 px-2.5 py-1 rounded-lg bg-gray-100 text-xs font-semibold hover:bg-amber-100 transition">Reaction</button>
+              <button onclick="selectSnippetType(3, 'summary', this)" class="snip3 px-2.5 py-1 rounded-lg bg-gray-100 text-xs font-semibold hover:bg-amber-100 transition">Summary</button>
+            </div>
+            <p id="snip3-ans" class="text-xs font-bold mt-1.5 text-emerald-600 hidden">✓ Correct: 'Otherwise' indicates consequence = Cause & Effect!</p>
+          </div>
+
+          <!-- Snippet 4 -->
+          <div class="p-3.5 bg-white rounded-2xl border border-amber-200 shadow-sm">
+            <span class="text-[10px] font-bold text-amber-700 bg-amber-100 px-2 py-0.5 rounded-full">Snippet 4</span>
+            <p class="text-xs text-gray-700 mt-1.5 mb-2.5 italic">
+              "Overall, last year was very good for the nation's economy. The unemployment rate was down, more jobs were created, and people spent more."
+            </p>
+            <div class="flex gap-2">
+              <button onclick="selectSnippetType(4, 'summary', this)" class="snip4 px-2.5 py-1 rounded-lg bg-gray-100 text-xs font-semibold hover:bg-amber-100 transition">Summary</button>
+              <button onclick="selectSnippetType(4, 'opinion', this)" class="snip4 px-2.5 py-1 rounded-lg bg-gray-100 text-xs font-semibold hover:bg-amber-100 transition">Opinion</button>
+              <button onclick="selectSnippetType(4, 'reaction', this)" class="snip4 px-2.5 py-1 rounded-lg bg-gray-100 text-xs font-semibold hover:bg-amber-100 transition">Reaction</button>
+            </div>
+            <p id="snip4-ans" class="text-xs font-bold mt-1.5 text-emerald-600 hidden">✓ Correct: 'Overall' signals an overview = Summary!</p>
+          </div>
+        </div>
+
+        <div class="flex items-center justify-between">
+          <span class="text-xs text-purple-700">Skim-tag each paragraph with <em>"Cause"</em>, <em>"Fact"</em>, or <em>"Summary"</em> in your pencil margin!</span>
+          <button onclick="goToSlide(6)" class="px-5 py-2 bg-amber-500 hover:bg-amber-600 text-white rounded-xl text-xs font-bold shadow-md transition">
+            Next: Grammar Lab (The Passive) →
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 8: Grammar Focus - The Passive Voice (Page 51-52) -->
+    <section id="slide-7" class="slide w-full">
+      <div class="bg-white/85 backdrop-blur-xl rounded-3xl p-6 md:p-8 border border-purple-100 shadow-pastel">
+        <div class="flex items-center justify-between mb-4">
+          <div class="flex items-center gap-3">
+            <div class="p-2 rounded-2xl bg-indigo-100 text-indigo-600">
+              <i data-lucide="book-marked" class="w-5 h-5"></i>
+            </div>
+            <div>
+              <span class="text-xs font-bold text-indigo-600 uppercase font-accent">Grammar Focus • Academic News Register (Book Page 51-52 • Ex 10-13)</span>
+              <h3 class="text-xl md:text-2xl font-bold font-title text-whimsical-dark">Mastering The Passive Voice</h3>
+            </div>
+          </div>
+          <span class="text-xs bg-indigo-100 text-indigo-800 font-bold px-3 py-1 rounded-full">be + past participle</span>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-3 mb-4">
+          <div class="p-3 bg-indigo-50/60 rounded-xl border border-indigo-100 text-xs">
+            <strong class="text-indigo-800 block mb-1">1. Focus on the Action:</strong>
+            The event or outcome is more important than who performed it.
+          </div>
+          <div class="p-3 bg-purple-50/60 rounded-xl border border-purple-100 text-xs">
+            <strong class="text-purple-800 block mb-1">2. Agent Obvious/Unknown:</strong>
+            "A suspect was arrested" (obviously by the police).
+          </div>
+          <div class="p-3 bg-pink-50/60 rounded-xl border border-pink-100 text-xs">
+            <strong class="text-pink-800 block mb-1">3. Formal Academic Tone:</strong>
+            Creates an objective, authoritative journalistic voice.
+          </div>
+        </div>
+
+        <!-- Passive Tense Matcher (Exercise 10) -->
+        <h4 class="text-xs font-bold uppercase tracking-wider text-purple-900 mb-2">Book Exercise 10: Match Sentence to Tense</h4>
+        <div class="space-y-1.5 mb-4">
+          <div class="p-2.5 bg-white rounded-xl border border-purple-100 flex items-center justify-between text-xs">
+            <span>"Social media <strong>is used</strong> for breaking news..."</span>
+            <span class="font-bold text-purple-700 bg-purple-100 px-2 py-0.5 rounded-lg">Present Simple Passive</span>
+          </div>
+          <div class="p-2.5 bg-white rounded-xl border border-purple-100 flex items-center justify-between text-xs">
+            <span>"It <strong>was also revealed</strong> that most youngsters..."</span>
+            <span class="font-bold text-pink-700 bg-pink-100 px-2 py-0.5 rounded-lg">Past Simple Passive</span>
+          </div>
+          <div class="p-2.5 bg-white rounded-xl border border-purple-100 flex items-center justify-between text-xs">
+            <span>"Social networks <strong>are being used</strong> selectively..."</span>
+            <span class="font-bold text-blue-700 bg-blue-100 px-2 py-0.5 rounded-lg">Present Continuous Passive</span>
+          </div>
+        </div>
+
+        <!-- Interactive Headline Transformation Challenge (Ex 13) -->
+        <div class="p-3.5 bg-purple-100/40 rounded-2xl border border-purple-200">
+          <h4 class="text-xs font-bold text-purple-900 uppercase mb-2 flex items-center gap-1.5">
+            <i data-lucide="edit-3" class="w-4 h-4 text-purple-600"></i>
+            Interactive Active-to-Passive Transformation Challenge (Click to solve):
+          </h4>
+          <div class="space-y-2 text-xs">
+            <div onclick="toggleHeadline(1)" class="cursor-pointer p-2.5 bg-white rounded-xl border border-purple-200 flex justify-between items-center hover:bg-purple-50 transition">
+              <span><strong>Active:</strong> "Police found the Hollywood actor unconscious in his apartment."</span>
+              <span id="hl-1" class="font-bold text-purple-600">[Reveal Passive]</span>
+            </div>
+            <div onclick="toggleHeadline(2)" class="cursor-pointer p-2.5 bg-white rounded-xl border border-purple-200 flex justify-between items-center hover:bg-purple-50 transition">
+              <span><strong>Active:</strong> "Researchers have recovered treasure from a sunken Spanish ship."</span>
+              <span id="hl-2" class="font-bold text-purple-600">[Reveal Passive]</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-4 flex justify-end">
+          <button onclick="goToSlide(7)" class="px-5 py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl text-xs font-bold shadow-md transition">
+            Next: Video Masterclass →
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 9: Video Masterclass on Matching Information -->
+    <section id="slide-8" class="slide w-full">
+      <div class="bg-white/85 backdrop-blur-xl rounded-3xl p-6 md:p-8 border border-purple-100 shadow-pastel">
+        <div class="flex flex-wrap items-center justify-between gap-3 mb-4">
+          <div class="flex items-center gap-3">
+            <div class="p-2 rounded-2xl bg-rose-100 text-rose-600">
+              <i data-lucide="video" class="w-5 h-5"></i>
+            </div>
+            <div>
+              <span class="text-xs font-bold text-rose-600 uppercase font-accent">Multimedia Strategy Masterclass</span>
+              <h3 class="text-xl md:text-2xl font-bold font-title text-whimsical-dark">Video Guide: IELTS Matching Features & Information</h3>
+            </div>
+          </div>
+          <button onclick="resetTimer(300); startTimer();" class="px-3 py-1.5 bg-rose-500 hover:bg-rose-600 text-white text-xs font-bold rounded-xl transition flex items-center gap-1.5 shadow-sm">
+            <i data-lucide="timer" class="w-3.5 h-3.5"></i>
+            <span>5-Min Video & Note Timer</span>
+          </button>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+          <!-- Video Frame -->
+          <div class="rounded-2xl overflow-hidden border border-purple-200 bg-black/90 shadow-sm aspect-video flex items-center justify-center relative">
+            <iframe 
+              class="w-full h-full" 
+              src="https://www.youtube-nocookie.com/embed/qrXRxIVZH3c?enablejsapi=1&rel=0" 
+              title="IELTS Reading Matching Features & Information" 
+              frameborder="0" 
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+              allowfullscreen>
+            </iframe>
+          </div>
+
+          <!-- Active-Viewing Guided Task Checklist -->
+          <div class="bg-purple-50/70 p-4 rounded-2xl border border-purple-200 text-xs flex flex-col justify-between">
+            <div>
+              <h4 class="font-bold text-sm text-purple-900 mb-2 flex items-center gap-1.5">
+                <i data-lucide="check-square" class="w-4 h-4 text-purple-600"></i>
+                Active-Viewing Checklist:
+              </h4>
+              <ul class="space-y-2 text-gray-700">
+                <li class="flex items-start gap-1.5">
+                  <span class="text-purple-600 font-bold">1.</span>
+                  <span><strong>Question Order:</strong> Notice why statements NEVER follow passage order.</span>
+                </li>
+                <li class="flex items-start gap-1.5">
+                  <span class="text-purple-600 font-bold">2.</span>
+                  <span><strong>Locating Anchor Words:</strong> Names, dates, and capital letters are scanned first.</span>
+                </li>
+                <li class="flex items-start gap-1.5">
+                  <span class="text-purple-600 font-bold">3.</span>
+                  <span><strong>Paraphrase Recognition:</strong> The examiner changes verbs and adjectives to trick passive readers.</span>
+                </li>
+                <li class="flex items-start gap-1.5">
+                  <span class="text-purple-600 font-bold">4.</span>
+                  <span><strong>Double Letters:</strong> Watch for the instruction <em>"You may use any letter more than once."</em></span>
+                </li>
+              </ul>
+            </div>
+
+            <div class="mt-3 p-2.5 bg-white rounded-xl border border-purple-200 text-[11px] text-purple-800">
+              💬 <strong>Classroom Prompt:</strong> After viewing, turn to your partner and explain the biggest difference between matching headings and matching information!
+            </div>
+          </div>
+        </div>
+
+        <div class="flex justify-end gap-2.5">
+          <button onclick="goToSlide(9)" class="px-5 py-2.5 bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded-xl text-xs font-bold shadow-md transition">
+            Proceed to Classroom Arcade Game →
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 10: Classroom Arcade Game - Newsroom Rush -->
+    <section id="slide-9" class="slide w-full">
+      <div class="bg-white/85 backdrop-blur-xl rounded-3xl p-6 md:p-8 border border-purple-100 shadow-pastel">
+        <div class="flex flex-wrap items-center justify-between gap-3 mb-4">
+          <div class="flex items-center gap-3">
+            <div class="p-2 rounded-2xl bg-amber-100 text-amber-600">
+              <i data-lucide="gamepad-2" class="w-5 h-5"></i>
+            </div>
+            <div>
+              <span class="text-xs font-bold text-amber-600 uppercase font-accent">Classroom Gamification</span>
+              <h3 class="text-xl md:text-2xl font-bold font-title text-whimsical-dark">Newsroom Rush: Distractor Dodge!</h3>
+            </div>
+          </div>
+
+          <!-- Game Dashboard -->
+          <div class="flex items-center gap-3 bg-amber-50 px-3.5 py-1.5 rounded-2xl border border-amber-200 text-xs font-bold text-amber-900">
+            <span>Score: <span id="gameScore" class="text-purple-600 font-mono">0</span></span>
+            <span class="text-gray-300">|</span>
+            <span>Streak: <span id="gameStreak" class="text-pink-600 font-mono">0🔥</span></span>
+            <span class="text-gray-300">|</span>
+            <span>Round: <span id="gameRound" class="text-amber-700 font-mono">1/5</span></span>
+          </div>
+        </div>
+
+        <!-- Arcade Main Card -->
+        <div id="arcadeContainer" class="p-5 rounded-2xl bg-gradient-to-br from-purple-50/80 to-pink-50/80 border border-purple-200 text-center mb-4 min-h-[220px] flex flex-col justify-between">
+          <div class="mb-3">
+            <span id="arcadeQuestionBadge" class="inline-block px-3 py-0.5 rounded-full bg-white text-purple-700 font-bold text-[11px] mb-2 border border-purple-200">
+              Round 1 • Question
+            </span>
+            <h4 id="arcadeQuestionText" class="text-base md:text-lg font-bold text-gray-800">
+              Which stat in Paragraph A represents "over half of smartphone users accessing news on a weekly basis"?
+            </h4>
+          </div>
+
+          <!-- Options Grid -->
+          <div id="arcadeOptionsGrid" class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 max-w-xl mx-auto w-full my-2">
+            <!-- Dynamic Buttons Generated via JS -->
+          </div>
+
+          <div id="arcadeFeedback" class="text-xs font-bold text-purple-800 h-5">
+            Choose fast! Earn bonus streak points!
+          </div>
+        </div>
+
+        <div class="flex items-center justify-between">
+          <button onclick="initArcadeGame()" class="px-3.5 py-1.5 bg-white border border-purple-200 text-purple-700 rounded-xl text-xs font-bold hover:bg-purple-50 transition">
+            Restart Game
+          </button>
+          <button onclick="goToSlide(10)" class="px-5 py-2.5 bg-purple-600 hover:bg-purple-700 text-white rounded-xl text-xs font-bold shadow-md transition">
+            Proceed to Exam Practice (Ex 15) →
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 11: Real Exam Practice (Page 52, Ex 15) -->
+    <section id="slide-10" class="slide w-full">
+      <div class="bg-white/85 backdrop-blur-xl rounded-3xl p-6 md:p-8 border border-purple-100 shadow-pastel">
+        <div class="flex flex-wrap items-center justify-between gap-3 mb-4">
+          <div class="flex items-center gap-3">
+            <div class="p-2 rounded-2xl bg-rose-100 text-rose-600">
+              <i data-lucide="award" class="w-5 h-5"></i>
+            </div>
+            <div>
+              <span class="text-xs font-bold text-rose-600 uppercase font-accent">Real IELTS Practice (Book Page 52 • Ex 15)</span>
+              <h3 class="text-xl md:text-2xl font-bold font-title text-whimsical-dark">Exam Practice: Which Paragraph Contains This?</h3>
+            </div>
+          </div>
+          <button onclick="resetTimer(180); startTimer();" class="px-4 py-1.5 bg-rose-500 hover:bg-rose-600 text-white text-xs font-bold rounded-xl transition flex items-center gap-1.5 shadow-sm">
+            <i data-lucide="timer" class="w-3.5 h-3.5"></i>
+            <span>3-Minute Exam Sprint</span>
+          </button>
+        </div>
+
+        <p class="text-xs text-gray-700 mb-4">
+          Based on <em>"How the younger generation consumes the news"</em> (Paragraphs A–F on page 51). Select the correct paragraph for each statement:
+        </p>
+
+        <!-- 6 Questions Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-3 mb-4">
+          <div class="p-3 bg-white rounded-2xl border border-purple-100 flex items-center justify-between gap-2 shadow-sm">
+            <span class="text-xs text-gray-800"><strong>1.</strong> reasons why the younger generation seeks news</span>
+            <select id="exam-q1" onchange="evaluateExamQ(1)" class="text-xs font-bold bg-purple-50 border border-purple-200 rounded-lg px-2 py-1 text-purple-800 focus:outline-none">
+              <option value="">Choose</option>
+              <option value="A">Para A</option>
+              <option value="B">Para B</option>
+              <option value="C">Para C</option>
+              <option value="D">Para D</option>
+              <option value="E">Para E</option>
+              <option value="F">Para F</option>
+            </select>
+          </div>
+
+          <div class="p-3 bg-white rounded-2xl border border-purple-100 flex items-center justify-between gap-2 shadow-sm">
+            <span class="text-xs text-gray-800"><strong>2.</strong> opinion that news is important to youth</span>
+            <select id="exam-q2" onchange="evaluateExamQ(2)" class="text-xs font-bold bg-purple-50 border border-purple-200 rounded-lg px-2 py-1 text-purple-800 focus:outline-none">
+              <option value="">Choose</option>
+              <option value="A">Para A</option>
+              <option value="B">Para B</option>
+              <option value="C">Para C</option>
+              <option value="D">Para D</option>
+              <option value="E">Para E</option>
+              <option value="F">Para F</option>
+            </select>
+          </div>
+
+          <div class="p-3 bg-white rounded-2xl border border-purple-100 flex items-center justify-between gap-2 shadow-sm">
+            <span class="text-xs text-gray-800"><strong>3.</strong> % of older adults in UK who access news digitally</span>
+            <select id="exam-q3" onchange="evaluateExamQ(3)" class="text-xs font-bold bg-purple-50 border border-purple-200 rounded-lg px-2 py-1 text-purple-800 focus:outline-none">
+              <option value="">Choose</option>
+              <option value="A">Para A</option>
+              <option value="B">Para B</option>
+              <option value="C">Para C</option>
+              <option value="D">Para D</option>
+              <option value="E">Para E</option>
+              <option value="F">Para F</option>
+            </select>
+          </div>
+
+          <div class="p-3 bg-white rounded-2xl border border-purple-100 flex items-center justify-between gap-2 shadow-sm">
+            <span class="text-xs text-gray-800"><strong>4.</strong> younger generation encounters news by chance</span>
+            <select id="exam-q4" onchange="evaluateExamQ(4)" class="text-xs font-bold bg-purple-50 border border-purple-200 rounded-lg px-2 py-1 text-purple-800 focus:outline-none">
+              <option value="">Choose</option>
+              <option value="A">Para A</option>
+              <option value="B">Para B</option>
+              <option value="C">Para C</option>
+              <option value="D">Para D</option>
+              <option value="E">Para E</option>
+              <option value="F">Para F</option>
+            </select>
+          </div>
+
+          <div class="p-3 bg-white rounded-2xl border border-purple-100 flex items-center justify-between gap-2 shadow-sm">
+            <span class="text-xs text-gray-800"><strong>5.</strong> news is of great significance to both young and old</span>
+            <select id="exam-q5" onchange="evaluateExamQ(5)" class="text-xs font-bold bg-purple-50 border border-purple-200 rounded-lg px-2 py-1 text-purple-800 focus:outline-none">
+              <option value="">Choose</option>
+              <option value="A">Para A</option>
+              <option value="B">Para B</option>
+              <option value="C">Para C</option>
+              <option value="D">Para D</option>
+              <option value="E">Para E</option>
+              <option value="F">Para F</option>
+            </select>
+          </div>
+
+          <div class="p-3 bg-white rounded-2xl border border-purple-100 flex items-center justify-between gap-2 shadow-sm">
+            <span class="text-xs text-gray-800"><strong>6.</strong> why youth consumes news through modern tech</span>
+            <select id="exam-q6" onchange="evaluateExamQ(6)" class="text-xs font-bold bg-purple-50 border border-purple-200 rounded-lg px-2 py-1 text-purple-800 focus:outline-none">
+              <option value="">Choose</option>
+              <option value="A">Para A</option>
+              <option value="B">Para B</option>
+              <option value="C">Para C</option>
+              <option value="D">Para D</option>
+              <option value="E">Para E</option>
+              <option value="F">Para F</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="flex items-center justify-between bg-purple-50 p-3 rounded-2xl border border-purple-200">
+          <div class="text-xs font-bold text-purple-900" id="examScoreDisplay">
+            Score: 0 / 6 Completed Correctly
+          </div>
+          <div class="flex gap-2">
+            <button onclick="revealAllExamAnswers()" class="px-3.5 py-1.5 bg-white border border-purple-300 text-purple-700 rounded-xl text-xs font-bold hover:bg-purple-100 transition">
+              Auto-Solve All (Official Key)
+            </button>
+            <button onclick="goToSlide(11)" class="px-4 py-1.5 bg-rose-500 hover:bg-rose-600 text-white rounded-xl text-xs font-bold shadow-sm transition">
+              Next: Exit Ticket →
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 12: Lesson Plenary & Formative Exit Ticket -->
+    <section id="slide-11" class="slide w-full">
+      <div class="bg-white/85 backdrop-blur-xl rounded-3xl p-7 md:p-9 border border-purple-100 shadow-pastel text-center">
+        <div class="inline-flex p-2.5 rounded-2xl bg-gradient-to-tr from-pink-300 to-purple-300 text-white mb-3 shadow-md">
+          <i data-lucide="check-check" class="w-6 h-6"></i>
+        </div>
+        <h3 class="text-2xl md:text-3xl font-extrabold font-title text-whimsical-dark mb-1.5">Lesson Plenary & Exit Ticket</h3>
+        <p class="text-xs md:text-sm text-purple-900/80 max-w-xl mx-auto mb-5">
+          Outstanding work today! Complete your quick individual check before packing up.
+        </p>
+
+        <!-- Exit Ticket Form -->
+        <div class="max-w-xl mx-auto bg-purple-50/70 border border-purple-200 rounded-2xl p-5 text-left mb-4 shadow-sm">
+          <h4 class="font-bold text-purple-900 text-xs uppercase tracking-wider mb-2.5">🎓 2-Minute Student Exit Check</h4>
+          
+          <div class="space-y-3 text-xs">
+            <div>
+              <label class="block font-bold text-gray-700 mb-1">1. What is the fundamental difference between Skimming and Scanning?</label>
+              <input type="text" placeholder="e.g. Skimming = overall gist; Scanning = specific facts/numbers..." class="w-full px-3 py-1.5 rounded-xl border border-purple-200 focus:outline-none focus:ring-2 focus:ring-purple-300 bg-white text-xs">
+            </div>
+
+            <div>
+              <label class="block font-bold text-gray-700 mb-1">2. Convert to the Passive Voice: "Journalists regularly interview world leaders."</label>
+              <input type="text" placeholder="World leaders are regularly interviewed by journalists." class="w-full px-3 py-1.5 rounded-xl border border-purple-200 focus:outline-none focus:ring-2 focus:ring-purple-300 bg-white text-xs">
+            </div>
+
+            <div>
+              <label class="block font-bold text-gray-700 mb-1">3. Today's Confidence Level:</label>
+              <div class="flex gap-4">
+                <label class="flex items-center gap-1 cursor-pointer"><input type="radio" name="confidence" value="1"> 1 ⭐</label>
+                <label class="flex items-center gap-1 cursor-pointer"><input type="radio" name="confidence" value="2"> 2 ⭐</label>
+                <label class="flex items-center gap-1 cursor-pointer"><input type="radio" name="confidence" value="3"> 3 ⭐</label>
+                <label class="flex items-center gap-1 cursor-pointer"><input type="radio" name="confidence" value="4"> 4 ⭐</label>
+                <label class="flex items-center gap-1 cursor-pointer"><input type="radio" name="confidence" value="5" checked> 5 🌟</label>
+              </div>
+            </div>
+          </div>
+
+          <button onclick="submitExitTicket()" class="mt-4 w-full py-2 bg-gradient-to-r from-purple-400 to-pink-400 hover:from-purple-500 hover:to-pink-500 text-white rounded-xl font-bold text-xs shadow-md transition">
+            Submit Exit Ticket & Celebrate! 🎉
+          </button>
+          <p id="exitTicketConfirm" class="text-center font-bold text-xs text-pink-600 mt-2 hidden">✨ Superb! All Unit 3 Reading objectives accomplished!</p>
+        </div>
+
+        <div class="flex justify-center gap-2">
+          <button onclick="goToSlide(0)" class="px-4 py-2 rounded-xl border border-purple-200 text-purple-700 font-bold text-xs hover:bg-purple-50 transition">
+            Restart Lesson Deck
+          </button>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Bottom Navigation Carousel Dock -->
+  <footer class="relative z-20 px-6 py-3.5 bg-white/80 backdrop-blur-md border-t border-purple-100 flex flex-wrap items-center justify-between gap-3 shadow-md">
+    <div class="flex items-center gap-2">
+      <button onclick="prevSlide()" class="p-2 rounded-xl bg-white border border-purple-200 text-purple-700 hover:bg-purple-50 shadow-sm transition flex items-center gap-1 text-xs font-bold">
+        <i data-lucide="chevron-left" class="w-4 h-4"></i>
+        <span>Prev</span>
+      </button>
+      <button onclick="nextSlide()" class="p-2 px-3.5 rounded-xl bg-gradient-to-r from-purple-400 to-pink-400 hover:from-purple-500 hover:to-pink-500 text-white shadow-pastel transition flex items-center gap-1 text-xs font-bold">
+        <span>Next</span>
+        <i data-lucide="chevron-right" class="w-4 h-4"></i>
+      </button>
+    </div>
+
+    <!-- Quick Slide Jump Pills (12 Slides) -->
+    <div class="hidden md:flex items-center gap-1 overflow-x-auto py-1">
+      <button onclick="goToSlide(0)" class="slide-pill px-2.5 py-1 rounded-full text-[11px] font-bold bg-purple-600 text-white transition">1. Cover</button>
+      <button onclick="goToSlide(1)" class="slide-pill px-2.5 py-1 rounded-full text-[11px] font-bold bg-purple-100 text-purple-700 hover:bg-purple-200 transition">2. Objectives</button>
+      <button onclick="goToSlide(2)" class="slide-pill px-2.5 py-1 rounded-full text-[11px] font-bold bg-purple-100 text-purple-700 hover:bg-purple-200 transition">3. Warm-Up</button>
+      <button onclick="goToSlide(3)" class="slide-pill px-2.5 py-1 rounded-full text-[11px] font-bold bg-purple-100 text-purple-700 hover:bg-purple-200 transition">4. Text Skim</button>
+      <button onclick="goToSlide(4)" class="slide-pill px-2.5 py-1 rounded-full text-[11px] font-bold bg-purple-100 text-purple-700 hover:bg-purple-200 transition">5. Matching Info</button>
+      <button onclick="goToSlide(5)" class="slide-pill px-2.5 py-1 rounded-full text-[11px] font-bold bg-purple-100 text-purple-700 hover:bg-purple-200 transition">6. Synonyms</button>
+      <button onclick="goToSlide(6)" class="slide-pill px-2.5 py-1 rounded-full text-[11px] font-bold bg-purple-100 text-purple-700 hover:bg-purple-200 transition">7. Paragraph Types</button>
+      <button onclick="goToSlide(7)" class="slide-pill px-2.5 py-1 rounded-full text-[11px] font-bold bg-purple-100 text-purple-700 hover:bg-purple-200 transition">8. Passive Voice</button>
+      <button onclick="goToSlide(8)" class="slide-pill px-2.5 py-1 rounded-full text-[11px] font-bold bg-purple-100 text-purple-700 hover:bg-purple-200 transition">9. Video</button>
+      <button onclick="goToSlide(9)" class="slide-pill px-2.5 py-1 rounded-full text-[11px] font-bold bg-purple-100 text-purple-700 hover:bg-purple-200 transition">10. Arcade</button>
+      <button onclick="goToSlide(10)" class="slide-pill px-2.5 py-1 rounded-full text-[11px] font-bold bg-purple-100 text-purple-700 hover:bg-purple-200 transition">11. Exam Ex15</button>
+      <button onclick="goToSlide(11)" class="slide-pill px-2.5 py-1 rounded-full text-[11px] font-bold bg-purple-100 text-purple-700 hover:bg-purple-200 transition">12. Exit Ticket</button>
+    </div>
+
+    <!-- Whimsical Interactive Sound Effect Toggle -->
+    <div class="flex items-center gap-2">
+      <button onclick="playWhimsicalChime()" class="p-2 rounded-xl bg-purple-50 hover:bg-purple-100 text-purple-600 border border-purple-200 transition text-xs font-bold flex items-center gap-1.5" title="Play celebration chime">
+        <i data-lucide="music" class="w-3.5 h-3.5 text-purple-500"></i>
+        <span class="hidden sm:inline">Chime</span>
+      </button>
+    </div>
+  </footer>
+
+  <!-- Web Audio Synthesizer & Dynamic Presentation Logic -->
+  <script>
+    // Audio Synthesizer (No external audio file dependencies)
+    const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+
+    function playTone(freq, type = 'sine', duration = 0.25, gainVal = 0.15) {
+      if (audioCtx.state === 'suspended') {
+        audioCtx.resume();
+      }
+      const osc = audioCtx.createOscillator();
+      const gain = audioCtx.createGain();
+      osc.type = type;
+      osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
+      gain.gain.setValueAtTime(gainVal, audioCtx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + duration);
+      osc.connect(gain);
+      gain.connect(audioCtx.destination);
+      osc.start();
+      osc.stop(audioCtx.currentTime + duration);
+    }
+
+    function playWhimsicalChime() {
+      setTimeout(() => playTone(523.25, 'sine', 0.4, 0.15), 0);
+      setTimeout(() => playTone(659.25, 'sine', 0.4, 0.15), 100);
+      setTimeout(() => playTone(783.99, 'sine', 0.4, 0.15), 200);
+      setTimeout(() => playTone(987.77, 'sine', 0.6, 0.2), 300);
+    }
+
+    function playCorrectSound() {
+      playTone(587.33, 'triangle', 0.15, 0.18);
+      setTimeout(() => playTone(880, 'triangle', 0.35, 0.2), 120);
+    }
+
+    function playIncorrectSound() {
+      playTone(330, 'sawtooth', 0.18, 0.15);
+      setTimeout(() => playTone(260, 'sawtooth', 0.25, 0.15), 100);
+    }
+
+    // Slide Management
+    let currentSlide = 0;
+    const totalSlides = 12;
+
+    const strategies = [
+      "Welcome & Orientation",
+      "Curriculum Alignment & Framework",
+      "Think-Pair-Share Warm-Up",
+      "Speed Skimming Pacing (90s)",
+      "IELTS Matching Information",
+      "Synonym Sprint Challenge",
+      "Paragraph Purpose Profiling",
+      "Form-Focus: The Passive Voice",
+      "Multimedia Masterclass & Viewing",
+      "Arcade Gamification & Distractor Dodge",
+      "Full IELTS Exam Practice (Ex 15)",
+      "Formative Exit Ticket & Wrap-Up"
+    ];
+
+    function updateSlideUI() {
+      document.querySelectorAll('.slide').forEach((s, idx) => {
+        s.classList.toggle('active', idx === currentSlide);
+      });
+      document.getElementById('currentSlideNum').innerText = currentSlide + 1;
+      document.getElementById('totalSlidesNum').innerText = totalSlides;
+      document.getElementById('currentStrategyTag').innerText = "Strategy: " + strategies[currentSlide];
+
+      // Update pills
+      document.querySelectorAll('.slide-pill').forEach((pill, idx) => {
+        if (idx === currentSlide) {
+          pill.className = "slide-pill px-2.5 py-1 rounded-full text-[11px] font-bold bg-purple-600 text-white transition";
+        } else {
+          pill.className = "slide-pill px-2.5 py-1 rounded-full text-[11px] font-bold bg-purple-100 text-purple-700 hover:bg-purple-200 transition";
+        }
+      });
+
+      if (window.lucide) {
+        lucide.createIcons();
+      }
+    }
+
+    function nextSlide() {
+      if (currentSlide < totalSlides - 1) {
+        currentSlide++;
+        updateSlideUI();
+      }
+    }
+
+    function prevSlide() {
+      if (currentSlide > 0) {
+        currentSlide--;
+        updateSlideUI();
+      }
+    }
+
+    function goToSlide(n) {
+      if (n >= 0 && n < totalSlides) {
+        currentSlide = n;
+        updateSlideUI();
+      }
+    }
+
+    // Keyboard Arrow Navigation
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight' || e.key === 'PageDown') nextSlide();
+      if (e.key === 'ArrowLeft' || e.key === 'PageUp') prevSlide();
+    });
+
+    // Fullscreen Toggle
+    function toggleFullScreen() {
+      if (!document.fullscreenElement) {
+        document.documentElement.requestFullscreen().catch(err => console.log(err));
+      } else {
+        if (document.exitFullscreen) {
+          document.exitFullscreen();
+        }
+      }
+    }
+
+    // Universal Timer
+    let timerDuration = 180;
+    let timerRemaining = 180;
+    let timerInterval = null;
+    let isTimerRunning = false;
+
+    function formatTime(sec) {
+      const m = Math.floor(sec / 60);
+      const s = sec % 60;
+      return `${String(m).padStart(2, '0')}:${String(s).padStart(2, '0')}`;
+    }
+
+    function updateTimerDisplay() {
+      document.getElementById('timerDisplay').innerText = formatTime(timerRemaining);
+    }
+
+    function toggleTimer() {
+      if (isTimerRunning) {
+        clearInterval(timerInterval);
+        isTimerRunning = false;
+        document.getElementById('timerIcon').setAttribute('data-lucide', 'play');
+      } else {
+        if (timerRemaining <= 0) timerRemaining = timerDuration;
+        isTimerRunning = true;
+        document.getElementById('timerIcon').setAttribute('data-lucide', 'pause');
+        timerInterval = setInterval(() => {
+          timerRemaining--;
+          updateTimerDisplay();
+          if (timerRemaining <= 0) {
+            clearInterval(timerInterval);
+            isTimerRunning = false;
+            document.getElementById('timerIcon').setAttribute('data-lucide', 'play');
+            playWhimsicalChime();
+          }
+        }, 1000);
+      }
+      lucide.createIcons();
+    }
+
+    function resetTimer(seconds) {
+      clearInterval(timerInterval);
+      isTimerRunning = false;
+      timerDuration = seconds;
+      timerRemaining = seconds;
+      updateTimerDisplay();
+      document.getElementById('timerIcon').setAttribute('data-lucide', 'play');
+      lucide.createIcons();
+    }
+
+    function startTimer() {
+      if (!isTimerRunning) toggleTimer();
+    }
+
+    // Slide 3: Warm-up Quote Reveal
+    function revealQuoteMatch(letter) {
+      const el = document.getElementById(`match-result-${letter}`);
+      if (el) {
+        el.classList.toggle('hidden');
+        playTone(600, 'sine', 0.2, 0.1);
+      }
+    }
+
+    // Slide 3: Poll
+    const votes = { Sarah: 0, Charles: 0, Matt: 0, Mary: 0 };
+    function voteQuote(name) {
+      votes[name]++;
+      document.getElementById(`vote${name}`).innerText = `(${votes[name]})`;
+      const sum = Object.values(votes).reduce((a, b) => a + b, 0);
+      document.getElementById('totalVotes').innerText = `Total votes: ${sum}`;
+      playCorrectSound();
+    }
+
+    // Slide 4: Text Keyword Highlight
+    let isHighlighted = false;
+    function highlightStrategy(type) {
+      isHighlighted = !isHighlighted;
+      playTone(700, 'triangle', 0.2, 0.1);
+    }
+
+    // Slide 5: Matching Information (Ex 05 - Answers from p. 172: 1:B, 2:A, 3:D, 4:D)
+    const ex5Answers = { 1: 'B', 2: 'A', 3: 'D', 4: 'D' };
+    function checkMatchQ(qNum, selectedLetter, btn) {
+      const correct = ex5Answers[qNum];
+      const feedback = document.getElementById(`q${qNum}-feedback`);
+      const buttons = document.querySelectorAll(`.q${qNum}-btn`);
+
+      buttons.forEach(b => {
+        b.classList.remove('bg-emerald-500', 'bg-rose-500', 'text-white');
+        b.classList.add('bg-purple-50', 'text-purple-800');
+      });
+
+      if (selectedLetter === correct) {
+        btn.classList.remove('bg-purple-50', 'text-purple-800');
+        btn.classList.add('bg-emerald-500', 'text-white');
+        feedback.innerText = "✓ Correct!";
+        feedback.className = "text-xs font-bold ml-2 text-emerald-600";
+        playCorrectSound();
+      } else {
+        btn.classList.remove('bg-purple-50', 'text-purple-800');
+        btn.classList.add('bg-rose-500', 'text-white');
+        feedback.innerText = `✗ Try again (Check Para ${correct})`;
+        feedback.className = "text-xs font-bold ml-2 text-rose-500";
+        playIncorrectSound();
+      }
+    }
+
+    function revealAllEx5() {
+      [1, 2, 3, 4].forEach(qNum => {
+        const correct = ex5Answers[qNum];
+        const buttons = document.querySelectorAll(`.q${qNum}-btn`);
+        buttons.forEach(btn => {
+          if (btn.innerText.trim() === correct) {
+            btn.classList.add('bg-emerald-500', 'text-white');
+          }
+        });
+        const feedback = document.getElementById(`q${qNum}-feedback`);
+        feedback.innerText = `✓ Answer: Paragraph ${correct}`;
+        feedback.className = "text-xs font-bold ml-2 text-emerald-600";
+      });
+      playWhimsicalChime();
+    }
+
+    // Slide 6: Synonyms Hunt (Book Page 50, Ex 07)
+    function placeSynonym(slotNum, text) {
+      const slot = document.getElementById(`syn-slot-${slotNum}`);
+      slot.innerText = text;
+      slot.className = "px-2.5 py-1 bg-teal-100 rounded-lg text-teal-900 font-bold text-xs border border-teal-300";
+      playCorrectSound();
+    }
+
+    function resetSynonyms() {
+      for (let i = 1; i <= 5; i++) {
+        const slot = document.getElementById(`syn-slot-${i}`);
+        slot.innerText = "[Click Answer Below]";
+        slot.className = "px-2.5 py-1 bg-white rounded-lg border border-dashed border-purple-300 text-purple-600 font-bold text-[11px]";
+      }
+    }
+
+    // Slide 7: Snippet Purpose
+    function selectSnippetType(num, chosen, btn) {
+      const correctTypes = { 1: 'reaction', 2: 'opinion', 3: 'cause', 4: 'summary' };
+      const ansElem = document.getElementById(`snip${num}-ans`);
+      if (chosen === correctTypes[num]) {
+        btn.classList.remove('bg-gray-100');
+        btn.classList.add('bg-emerald-500', 'text-white');
+        ansElem.classList.remove('hidden');
+        playCorrectSound();
+      } else {
+        btn.classList.add('bg-rose-200');
+        playIncorrectSound();
+      }
+    }
+
+    // Slide 8: Grammar Headline Toggle (Ex 13)
+    const passiveHeadlines = {
+      1: "The Hollywood actor was found unconscious in his Manhattan apartment (by police).",
+      2: "Treasure has been recovered from a sunken Spanish ship (by researchers)."
+    };
+    function toggleHeadline(n) {
+      const span = document.getElementById(`hl-${n}`);
+      if (span.innerText.includes("[")) {
+        span.innerText = passiveHeadlines[n];
+        span.className = "font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded";
+        playTone(500, 'triangle', 0.2, 0.1);
+      } else {
+        span.innerText = "[Reveal Passive]";
+        span.className = "font-bold text-purple-600";
+      }
+    }
+
+    // SLIDE 10: Newsroom Rush Arcade Game Engine
+    const arcadeQuestions = [
+      {
+        badge: "Round 1 • Statistics & Paraphrasing",
+        q: "In Paragraph A, which percentage indicates 'over half of smartphone users'?",
+        options: [
+          { text: "66% (Weekly news users)", correct: true },
+          { text: "37% (Previous year usage)", correct: false },
+          { text: "46% (Current survey total)", correct: false },
+          { text: "25% (A quarter only)", correct: false }
+        ]
+      },
+      {
+        badge: "Round 2 • Hardware Shift",
+        q: "According to Paragraph B, what is happening to tablet usage for news?",
+        options: [
+          { text: "It is decreasing in most countries", correct: true },
+          { text: "It is overtaking laptops completely", correct: false },
+          { text: "It has increased by 8% this year", correct: false },
+          { text: "It is banned in the UK and USA", correct: false }
+        ]
+      },
+      {
+        badge: "Round 3 • Multi-Device Combinations",
+        q: "What is the overall digital trend for accessing news described in Paragraph D?",
+        options: [
+          { text: "Using a combination of two or three devices", correct: true },
+          { text: "Relying purely on one single smartphone", correct: false },
+          { text: "Returning to traditional printed newspapers", correct: false },
+          { text: "Never accessing the news online", correct: false }
+        ]
+      },
+      {
+        badge: "Round 4 • Passive Voice Identification",
+        q: "Which headline is written in the correct Passive Voice?",
+        options: [
+          { text: "The match was delayed by severe rain.", correct: true },
+          { text: "Severe rain was delaying the match.", correct: false },
+          { text: "Severe rain had delayed the match.", correct: false },
+          { text: "The match delayed because of rain.", correct: false }
+        ]
+      },
+      {
+        badge: "Round 5 • Youth Media Habits",
+        q: "In 'How the younger generation consumes the news', how do most youngsters encounter news on social media?",
+        options: [
+          { text: "Accidentally while doing other things", correct: true },
+          { text: "By actively searching for hard politics", correct: false },
+          { text: "By purchasing daily morning papers", correct: false },
+          { text: "By following only radio podcasts", correct: false }
+        ]
+      }
+    ];
+
+    let arcadeIndex = 0;
+    let arcadeScore = 0;
+    let arcadeStreak = 0;
+
+    function initArcadeGame() {
+      arcadeIndex = 0;
+      arcadeScore = 0;
+      arcadeStreak = 0;
+      document.getElementById('gameScore').innerText = "0";
+      document.getElementById('gameStreak').innerText = "0🔥";
+      renderArcadeRound();
+    }
+
+    function renderArcadeRound() {
+      const q = arcadeQuestions[arcadeIndex];
+      document.getElementById('gameRound').innerText = `${arcadeIndex + 1}/${arcadeQuestions.length}`;
+      document.getElementById('arcadeQuestionBadge').innerText = q.badge;
+      document.getElementById('arcadeQuestionText').innerText = q.q;
+      document.getElementById('arcadeFeedback').innerText = "Choose quickly! Maintain your streak!";
+
+      const grid = document.getElementById('arcadeOptionsGrid');
+      grid.innerHTML = "";
+
+      q.options.forEach((opt) => {
+        const btn = document.createElement('button');
+        btn.className = "p-3 rounded-xl bg-white border border-purple-200 text-xs font-bold text-gray-700 hover:bg-purple-100 transition shadow-sm text-left flex items-center gap-2";
+        btn.innerHTML = `<span class="w-5 h-5 rounded-full bg-purple-100 text-purple-700 flex items-center justify-center text-[10px]">●</span> <span>${opt.text}</span>`;
+        btn.onclick = () => handleArcadeAnswer(opt.correct, btn);
+        grid.appendChild(btn);
+      });
+    }
+
+    function handleArcadeAnswer(isCorrect, btn) {
+      if (isCorrect) {
+        arcadeStreak++;
+        const pts = 100 + (arcadeStreak > 1 ? 50 : 0);
+        arcadeScore += pts;
+        btn.classList.add('bg-emerald-500', 'text-white', 'border-emerald-600');
+        document.getElementById('arcadeFeedback').innerText = `🎉 Correct! +${pts} Points!`;
+        playCorrectSound();
+      } else {
+        arcadeStreak = 0;
+        btn.classList.add('bg-rose-500', 'text-white', 'border-rose-600');
+        document.getElementById('arcadeFeedback').innerText = "❌ Distractor hit! Streak broken!";
+        playIncorrectSound();
+      }
+
+      document.getElementById('gameScore').innerText = arcadeScore;
+      document.getElementById('gameStreak').innerText = `${arcadeStreak}🔥`;
+
+      setTimeout(() => {
+        if (arcadeIndex < arcadeQuestions.length - 1) {
+          arcadeIndex++;
+          renderArcadeRound();
+        } else {
+          document.getElementById('arcadeQuestionBadge').innerText = "Game Completed!";
+          document.getElementById('arcadeQuestionText').innerText = `🏆 Final Score: ${arcadeScore} Points!`;
+          document.getElementById('arcadeOptionsGrid').innerHTML = `
+            <div class="col-span-full p-4 bg-white rounded-2xl border border-purple-200">
+              <p class="text-xs font-bold text-purple-800 mb-2">Classroom Newsroom Champions! You successfully dodged all examiner distractors!</p>
+              <button onclick="initArcadeGame()" class="px-4 py-2 bg-gradient-to-r from-purple-400 to-pink-400 text-white rounded-xl text-xs font-bold">Play Again</button>
+            </div>
+          `;
+          playWhimsicalChime();
+        }
+      }, 1000);
+    }
+
+    // Slide 11: Real Exam Practice (Book p.52 Ex 15)
+    const officialExamAnswers = {
+      1: 'E',
+      2: 'A',
+      3: 'B',
+      4: 'C',
+      5: 'F',
+      6: 'B'
+    };
+
+    function evaluateExamQ(qNum) {
+      const sel = document.getElementById(`exam-q${qNum}`);
+      if (sel.value === officialExamAnswers[qNum]) {
+        sel.classList.remove('bg-purple-50', 'bg-rose-100', 'text-purple-800', 'text-rose-700');
+        sel.classList.add('bg-emerald-100', 'text-emerald-800', 'border-emerald-300');
+        playCorrectSound();
+      } else if (sel.value !== "") {
+        sel.classList.remove('bg-purple-50', 'bg-emerald-100', 'text-purple-800', 'text-emerald-800');
+        sel.classList.add('bg-rose-100', 'text-rose-700', 'border-rose-300');
+        playIncorrectSound();
+      }
+      updateExamScore();
+    }
+
+    function updateExamScore() {
+      let count = 0;
+      for (let i = 1; i <= 6; i++) {
+        const val = document.getElementById(`exam-q${i}`).value;
+        if (val === officialExamAnswers[i]) count++;
+      }
+      document.getElementById('examScoreDisplay').innerText = `Score: ${count} / 6 Completed Correctly`;
+      if (count === 6) {
+        playWhimsicalChime();
+      }
+    }
+
+    function revealAllExamAnswers() {
+      for (let i = 1; i <= 6; i++) {
+        const sel = document.getElementById(`exam-q${i}`);
+        sel.value = officialExamAnswers[i];
+        sel.className = "text-xs font-bold bg-emerald-100 text-emerald-800 border-emerald-300 border rounded-lg px-2 py-1";
+      }
+      document.getElementById('examScoreDisplay').innerText = `Score: 6 / 6 Completed Correctly (Official Cambridge Key)`;
+      playWhimsicalChime();
+    }
+
+    function submitExitTicket() {
+      document.getElementById('exitTicketConfirm').classList.remove('hidden');
+      playWhimsicalChime();
+    }
+
+    // Initializer
+    window.addEventListener('DOMContentLoaded', () => {
+      lucide.createIcons();
+      updateSlideUI();
+      initArcadeGame();
+    });
+  </script>
+</body>
+</html>
